@@ -1,0 +1,67 @@
+<h1>Welcome to LangRey</h1>
+<p>Enter in your info below to get started:</p>
+
+<body>
+<form id="initial-info" action="/Home/SubmitInitialInfo" method="post">
+  <div class = "boxes-and-buttons">
+    <div class = "Native Language">
+      <select id="native-lang" name="Native Language">
+        <option value="english">English</option>
+        <option value="spanish">Spanish</option>
+        <option value="chinese">Chinese</option>
+        <option value="german">German</option>
+        <option value="portuguese">Portuguese</option>
+      </select>
+    </div>
+    <div class="interface Language">
+      <select id="interface-lang" name="Interface Language">
+        <option value="english">English</option>
+        <option value="spanish">Spanish</option>
+        <option value="chinese">Chinese</option>
+        <option value="german">German</option>
+        <option value="portuguese">Portuguese</option>        </select>
+    </div>
+    <div class="Target Language">
+      <select id="target-lang" name="Interface Language">
+        <option value="english">English</option>
+        <option value="spanish">Spanish</option>
+        <option value="chinese">Chinese</option>
+        <option value="german">German</option>
+        <option value="portuguese">Portuguese</option>
+      </select>
+    </div>
+    <div>
+      <input id="music-preference" type="text" name="mpreference" placeholder="input your favorite artist"> <!-- we can hopefully think of a way to use this input to find him good music in his target language...-->
+    </div>
+  </form>
+
+  <button id="initial-info">Start Learning</button>
+  <br><br>
+  <button>Login</button>
+</div>
+</body>
+
+
+var validate = $.post(
+          "<%= validate_emails_for_campaign_path %>" ,
+          { emails: test_emails }
+        );
+        validate.always(function() {
+
+<script>
+$("#initial-info").click(function() {
+  var targetLang = $("#target-lang").val();
+  var interfaceLang = $("#interface-lang").val();
+  var nativeLang = $("#native-lang").val();
+  var musicPreference = $("#music-preference").val();
+  var validate = $.post("<%= user_initial_info_path %>", { native_lang:nativeLang, interface_lang:interfaceLang, target_lang:targetLang, music_preference:musicPreference}
+  );
+  validate.always(function() {
+});
+
+
+
+
+
+</script>
+</html>
